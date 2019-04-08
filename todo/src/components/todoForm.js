@@ -14,6 +14,8 @@ class TodoForm extends React.Component {
     addNewTodo = event =>{
         event.preventDefault();
         console.log(this.state.todoText)
+        this.props.addTodo(this.state.todoText)
+        this.setState({todoText: ''})
     }
   
     render() {
@@ -31,4 +33,12 @@ class TodoForm extends React.Component {
       )
     }
   }
-export default TodoForm;
+
+const mapStateToProps = state =>{
+    return{
+        todo: state.todo
+    }
+}
+
+
+export default connect(mapStateToProps, {addTodo})(TodoForm);
