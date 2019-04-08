@@ -29,11 +29,6 @@ const reducer = (state=initialState,action) =>{
             ...state,
               todo: [...state.todo , {value: action.payload ,completed: false}]
         }
-        case TOGGLE_TODO: 
-            return{
-                ...state,
-                completed: !this.state.todo.completed
-        }
         default:
             return state
     }
