@@ -1,6 +1,19 @@
 
 const initialState = {
-    todo:[]
+    todo:[
+        {
+            value: 'eat breakfast',
+            completed: false
+        },
+        {
+            value: 'eat lunch',
+            completed: false
+        },
+        {
+            value: 'eat dinner',
+            completed: false
+        }
+    ]
 }
 
 const reducer = (state=initialState,action) =>{

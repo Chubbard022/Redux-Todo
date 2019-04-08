@@ -13,12 +13,12 @@ class TodoForm extends React.Component {
     }
     addNewTodo = event =>{
         event.preventDefault();
-        console.log('clicked')
+        console.log(this.state.todoText)
     }
   
     render() {
       return (
-        <form>
+        <form style={{textAlign:'center'}}>
           <input 
             type="text"
             placeholder="Todo...."

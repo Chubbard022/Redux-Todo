@@ -1,3 +1,4 @@
+//--------------------------------------------------------
 export const ADD_TODO = "ADD_TODO";
 
 export const addTodo = todo =>{
@@ -6,12 +7,21 @@ export const addTodo = todo =>{
         payload: todo
     }
 }
-
+//--------------------------------------------------------
 export const DELETE_TODO = "DELETE_TODO";
 
 export const delteTodo = todo =>{
     return{
         type: DELETE_TODO,
+        payload: todo
+    }
+}
+//--------------------------------------------------------
+export const TOGGLE_TODO = 'TOGGLE_TODO';
+
+export const toggleTodo = todo =>{
+    return{
+        type: TOGGLE_TODO,
         payload: todo
     }
 }
