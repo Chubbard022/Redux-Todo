@@ -1,6 +1,6 @@
 
 const initialState = {
-    todoItem: 'hello'
+    todo:[]
 }
 
 const reducer = (state=initialState,action) =>{
