@@ -4,7 +4,8 @@ const initialState = {
         {value: 'eat breakfast',completed: false},
         {value: 'eat lunch',completed: false},
         {value: 'eat dinner',completed: false}
-        ]
+        ],
+    completed: false
 }
 
 const reducer = (state=initialState,action) =>{
@@ -15,18 +16,28 @@ const reducer = (state=initialState,action) =>{
                 todo: [...state.todo , {value: action.payload , completed: false} ]
             }
         case DELETE_TODO: 
-        return{
-            ...state,
-              todo: state.todo.filter((item,index)=> index !== action.payload)
-        }
+            return {
+                ...state,
+                todo: state.filter((todo, id)=> id !== action.payload)
+            }
         case TOGGLE_TODO: 
-        console.log('TOGGLED')
-
-        return{
-        }
+            return{
+                ...state,
+                todo: state.todo.map((todo, id)=>{
+                    if(id === action.payload){
+                        return{
+                            ...todo,
+                            completed: !todo.completed
+                        }
+                    }else{
+                        return todo
+                    }
+                })
+            }
         default:
             return state
     }
 }
 
 export default reducer;
+
