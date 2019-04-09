@@ -1,19 +1,10 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_TODO} from '../actions';
 const initialState = {
     todo:[
-        {
-            value: 'eat breakfast',
-            completed: false
-        },
-        {
-            value: 'eat lunch',
-            completed: false
-        },
-        {
-            value: 'eat dinner',
-            completed: false
-        }
-    ]
+        {value: 'eat breakfast',completed: false},
+        {value: 'eat lunch',completed: false},
+        {value: 'eat dinner',completed: false}
+        ]
 }
 
 const reducer = (state=initialState,action) =>{
@@ -26,7 +17,12 @@ const reducer = (state=initialState,action) =>{
         case DELETE_TODO: 
         return{
             ...state,
-              todo: [...state.todo , {value: action.payload ,completed: false}]
+              todo: state.todo.filter((item,index)=> index !== action.payload)
+        }
+        case TOGGLE_TODO: 
+        console.log('TOGGLED')
+
+        return{
         }
         default:
             return state

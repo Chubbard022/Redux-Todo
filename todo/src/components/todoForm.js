@@ -16,9 +16,6 @@ class TodoForm extends React.Component {
         this.props.addTodo(this.state.todoText)
         this.setState({todoText: ''})
     }
-    deltePost = (index)=>{
-
-    }
   
     render() {
       return (

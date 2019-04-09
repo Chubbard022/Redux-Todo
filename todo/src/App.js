@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, deleteTodo } from './actions';
+import { addTodo, deleteTodo, toggleTodo } from './actions';
 
 import TodoForm from './components/todoForm'
 import TodoList from './components/TodoList'
@@ -23,7 +23,7 @@ class App extends Component {
       <div className="App">
       <h2 style={{textAlign:'center'}}>Add a todo to the list</h2>
       <TodoForm addTodo={this.props.addTodo}/>
-      <TodoList todoArray={this.props.todoList.todo} deltePost={this.deltePost}/>
+      <TodoList toggleTodo={this.props.toggleTodo} todoArray={this.props.todoList.todo} deltePost={this.deltePost}/>
       
       </div>
     );
@@ -35,4 +35,4 @@ const mapStateToProps = state =>{
   }
 }
 
-export default connect(mapStateToProps , {addTodo, deleteTodo})(App);
+export default connect(mapStateToProps , {addTodo, deleteTodo, toggleTodo})(App);
