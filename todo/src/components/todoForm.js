@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { addTodo, deleteTodo } from '../actions';
+
 
 
 class TodoForm extends React.Component {
@@ -20,15 +19,16 @@ class TodoForm extends React.Component {
   
     render() {
       return (
-        <form style={{textAlign:'center'}}>
+        <form className='todoForm' style={{textAlign:'center'}}>
           <input 
+          className = 'formBoxes'
             type="text"
             placeholder="Todo...."
             name='todoText'
             value={this.state.todoText}
             onChange={this.handleInput}
           />
-          <button onClick={this.addNewTodo}>Add Todo</button>
+          <button className = 'formBoxes' onClick={this.addNewTodo}>Add Todo</button>
         </form>
       )
     }

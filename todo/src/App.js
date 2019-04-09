@@ -13,7 +13,8 @@ class App extends Component {
       <div className="App">
       <h2 style={{textAlign:'center'}}>Add a todo to the list</h2>
       <TodoForm addTodo={this.props.addTodo}/>
-      <TodoList todoListArray={this.props.todoList} deleteTodo={this.props.addTodo}/>
+      <TodoList todoArray={this.props.todoList.todo} deleteTodo={this.props.addTodo}/>
+      
       </div>
     );
   }
