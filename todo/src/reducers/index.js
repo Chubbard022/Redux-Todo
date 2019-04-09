@@ -16,10 +16,7 @@ const reducer = (state=initialState,action) =>{
                 todo: [...state.todo , {value: action.payload , completed: false} ]
             }
         case DELETE_TODO: 
-            return {
-                ...state,
-                todo: state.filter((todo, id)=> id !== action.payload)
-            }
+            return state.filter((todo, id)=> id !== action.payload)
         case TOGGLE_TODO: 
             return{
                 ...state,

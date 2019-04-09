@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
+import { addTodo, deleteTodo, toggleTodo } from '../actions';
 
 
 class TodoForm extends React.Component {
@@ -34,4 +35,11 @@ class TodoForm extends React.Component {
     }
   }
 
-export default TodoForm;
+  const mapStateToProps = state =>{
+    return{
+      todoList: state
+    }
+  }
+  
+  export default connect(mapStateToProps , {addTodo, deleteTodo, toggleTodo})(TodoForm);
+  

@@ -1,20 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo, deleteTodo, toggleTodo } from '../actions';
 
-const TodoList = (props) => {
+class TodoList extends React.Component {
+    render(){
     return (
         <div>
-            {props.todoArray.map((item, index) =>
+            {this.props.todoList.todo.map((item,index) => 
                 <div 
-                    // onClick={()=>props.toggleTodo(item)}
-                    className = 'todoItem' 
-                    key={index}
-                    >{item.value}
-
-                <button className='button' onClick={()=>props.deltePost(index)}>X</button>
-                </div>
-                )}
+                onClick={()=>this.props.toggleTodo(item)}
+                style={{textDecoration: item.completed ? 'line-through' : 'none'}}
+                className = 'todoItem' 
+                key={index}
+                >{item.value}
+                <button className='button' onClick={()=>this.props.deleteTodo()}>Delete</button>
+            </div>
+                
+                
+            )}
         </div>
     )
+  }
 }
 
-export default TodoList;
+const mapStateToProps = state =>{
+    return{
+      todoList: state
+    }
+  }
+  
+  export default connect(mapStateToProps , {addTodo, deleteTodo, toggleTodo})(TodoList);
