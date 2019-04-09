@@ -8,12 +8,12 @@ class TodoList extends React.Component {
         <div>
             {this.props.todoList.todo.map((item,index) => 
                 <div 
-                onClick={()=>this.props.toggleTodo(item)}
-                style={{textDecoration: item.completed ? 'line-through' : 'none'}}
-                className = 'todoItem' 
-                key={index}
+                    onClick={()=>this.props.toggleTodo(item)}
+                    style={{textDecoration: item.completed ? 'line-through' : 'none'}}
+                    className = 'todoItem' 
+                    key={index}
                 >{item.value}
-                <button className='button' onClick={()=>this.props.deleteTodo()}>Delete</button>
+                <button className='button' onClick={()=>this.props.deleteTodo(item)}>Delete</button>
             </div>
                 
                 

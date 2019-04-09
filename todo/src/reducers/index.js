@@ -1,11 +1,6 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_TODO} from '../actions';
 const initialState = {
-    todo:[
-        {value: 'eat breakfast',completed: false},
-        {value: 'eat lunch',completed: false},
-        {value: 'eat dinner',completed: false}
-        ],
-    completed: false
+    todo:[]
 }
 
 const reducer = (state=initialState,action) =>{
@@ -13,15 +8,15 @@ const reducer = (state=initialState,action) =>{
         case ADD_TODO: 
             return{
                 ...state,
-                todo: [...state.todo , {value: action.payload , completed: false} ]
+                todo: [...state.todo , {value: action.payload , completed: false, id: Date.now()} ]
             }
         case DELETE_TODO: 
-            return state.filter((todo, id)=> id !== action.payload)
+            return state.todo.filter((todo)=> todo !== action.payload)
         case TOGGLE_TODO: 
             return{
                 ...state,
-                todo: state.todo.map((todo, id)=>{
-                    if(id === action.payload){
+                todo: state.todo.map((todo)=>{
+                    if(todo === action.payload){
                         return{
                             ...todo,
                             completed: !todo.completed
