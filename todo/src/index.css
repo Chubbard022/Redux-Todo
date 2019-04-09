@@ -2,9 +2,10 @@ body{
     background-color: rgb(198, 255, 247);
 }
 .todoForm{
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     box-sizing: border-box;
     padding: 10px;
+    margin-bottom: 50px;
 }
 .formBoxes{
     font-size: 20px;
